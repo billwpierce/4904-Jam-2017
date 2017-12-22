@@ -15,6 +15,7 @@ public class PlayerController : NetworkBehaviour {
 	void Start()
 	{
 		makeLocalBoard ();
+		renderLocalBoard(board);
 	}
 
 	void Update()
@@ -28,9 +29,6 @@ public class PlayerController : NetworkBehaviour {
 
 		transform.Rotate(0, x, 0);
 		transform.Translate(0, 0, z);
-
-		renderLocalBoard(board);
-
 	}
 	public override void OnStartLocalPlayer()
 	{
