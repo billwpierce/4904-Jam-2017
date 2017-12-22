@@ -182,7 +182,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfee58850e74e4f6dbf23907d2a7e275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grass: {fileID: 1697814347279884, guid: e0fc3f096c7eb4ce0859ceb98016c086, type: 2}
+  wheat: {fileID: 1407327957512830, guid: d94696df0d54c43108d459f98856b36c, type: 2}
+  coal: {fileID: 1128818326027108, guid: 26bab5cff366b4e09865ed2823859b47, type: 2}
+  wood: {fileID: 1486769033442124, guid: 3619c3dc34e5142cdb9bb098892e8d73, type: 2}
 --- !u!114 &114426904537078076
 MonoBehaviour:
   m_ObjectHideFlags: 1
