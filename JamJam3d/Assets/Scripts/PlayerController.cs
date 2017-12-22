@@ -29,12 +29,13 @@ public class PlayerController : NetworkBehaviour {
 		transform.Rotate(0, x, 0);
 		transform.Translate(0, 0, z);
 
-		this.renderLocalBoard(this.board);
+		renderLocalBoard(board);
 
 	}
 	public override void OnStartLocalPlayer()
 	{
 		GetComponent<MeshRenderer>().material.color = Color.blue;
+
 	}
 
 	public void makeLocalBoard(){
