@@ -14,11 +14,7 @@ public class PlayerController : NetworkBehaviour {
 
 	void Start()
 	{
-		for (int i = 0; i < board.GetLength(0); i++) {
-			for (int j = 0; j < board.GetLength(1); j++) {
-				board[i,j] = Random.Range(0, 3);
-			}
-		}
+		makeLocalBoard ();
 	}
 
 	void Update()
@@ -40,6 +36,15 @@ public class PlayerController : NetworkBehaviour {
 	{
 		GetComponent<MeshRenderer>().material.color = Color.blue;
 	}
+
+	public void makeLocalBoard(){
+		for (int i = 0; i < board.GetLength(0); i++) {
+			for (int j = 0; j < board.GetLength(1); j++) {
+				board[i,j] = Random.Range(0, 3);
+			}
+		}
+	}
+
 	public void renderLocalBoard(int[,] board)
 	{
 		for (int i = 0; i < board.GetLength(0); i++) {
