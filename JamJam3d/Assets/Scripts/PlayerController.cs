@@ -53,8 +53,8 @@ public class PlayerController : NetworkBehaviour {
 	{
 		for (int i = 0; i < board.GetLength(0); i++) {
 			for (int j = 0; j < board.GetLength(1); j++) {
-				int xpos = i - (board.GetLength (0) / 2);
-				int ypos = j - (board.GetLength (1) / 2);
+				float xpos = i - (board.GetLength (0) / 2) + 0.5f;
+				float ypos = j - (board.GetLength (1) / 2) + 0.5f;
 				clones[i,j] = (GameObject) Instantiate (gameSquare, new Vector3 (xpos, 0, ypos), new Quaternion(0,0,0,0));
 				if (board[i,j] == 0) {
 					clones [i, j].GetComponentInChildren<Renderer>().material = wood;
