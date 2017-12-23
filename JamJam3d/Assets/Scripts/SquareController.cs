@@ -29,12 +29,10 @@ public class SquareController : MonoBehaviour {
 
 	void OnMouseOver(){
 		this.GetComponent<Renderer> ().material = this.squareMaterialSelected;
-		Debug.Log ("Hovering");
 	}
 
 	void OnMouseExit(){
 		this.GetComponent<Renderer> ().material = this.squareMaterial;
-		Debug.Log ("Left");
 	}
 
 }
