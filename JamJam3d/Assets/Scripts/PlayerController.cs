@@ -8,8 +8,11 @@ public class PlayerController : NetworkBehaviour {
 	public GameObject gameSquare;
 
 	public Material wheat;
+	public Material wheatSelected;
 	public Material coal;
+	public Material coalSelected;
 	public Material wood;
+	public Material woodSelected;
 
 	public int[,] board = new int[16, 16];
 	public GameObject[,] clones = new GameObject[16,16];
@@ -58,10 +61,16 @@ public class PlayerController : NetworkBehaviour {
 				clones[i,j] = (GameObject) Instantiate (gameSquare, new Vector3 (xpos, 0, ypos), new Quaternion(0,0,0,0));
 				if (board[i,j] == 0) {
 					clones [i, j].GetComponentInChildren<Renderer>().material = wood;
+					clones [i, j].GetComponentInChildren<SquareController>().squareMaterial = wood;
+					clones [i, j].GetComponentInChildren<SquareController>().squareMaterialSelected = woodSelected;
 				}else if (board[i,j] == 1) {
 					clones [i, j].GetComponentInChildren<Renderer>().material = coal;
+					clones [i, j].GetComponentInChildren<SquareController>().squareMaterial = coal;
+					clones [i, j].GetComponentInChildren<SquareController>().squareMaterialSelected = coalSelected;
 				}else if (board[i,j] == 2) {
 					clones [i, j].GetComponentInChildren<Renderer>().material = wheat;
+					clones [i, j].GetComponentInChildren<SquareController>().squareMaterial = wheat;
+					clones [i, j].GetComponentInChildren<SquareController>().squareMaterialSelected = wheatSelected;
 				}
 			}
 		}

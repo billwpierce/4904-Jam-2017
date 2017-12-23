@@ -8,6 +8,9 @@ public class SquareController : MonoBehaviour {
 	private float nextResource = 0.0F;
 	private float resourceRate = 5.0F;
 
+	public Material squareMaterial;
+	public Material squareMaterialSelected;
+
 	void Update(){
 		if (owned && Time.time > nextResource) {
 			Debug.Log ("Resource Gained.");
@@ -22,6 +25,16 @@ public class SquareController : MonoBehaviour {
 		}else{
 			Debug.Log ("Still owned.");
 		}
+	}
+
+	void OnMouseOver(){
+		this.GetComponent<Renderer> ().material = this.squareMaterialSelected;
+		Debug.Log ("Hovering");
+	}
+
+	void OnMouseExit(){
+		this.GetComponent<Renderer> ().material = this.squareMaterial;
+		Debug.Log ("Left");
 	}
 
 }
