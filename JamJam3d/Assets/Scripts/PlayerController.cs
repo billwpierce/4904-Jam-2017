@@ -5,9 +5,11 @@ using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour {
 
-	public GameObject wheat;
-	public GameObject coal;
-	public GameObject wood;
+	public GameObject gameSquare;
+
+	public Material wheat;
+	public Material coal;
+	public Material wood;
 
 	public int[,] board = new int[16, 16];
 	public GameObject[,] clones = new GameObject[16,16];
@@ -53,12 +55,13 @@ public class PlayerController : NetworkBehaviour {
 			for (int j = 0; j < board.GetLength(1); j++) {
 				int xpos = i - (board.GetLength (0) / 2);
 				int ypos = j - (board.GetLength (1) / 2);
+				clones[i,j] = (GameObject) Instantiate (gameSquare, new Vector3 (xpos, 0, ypos), new Quaternion(0,0,0,0));
 				if (board[i,j] == 0) {
-					clones[i,j] = (GameObject) Instantiate (wood, new Vector3 (xpos, 0, ypos), new Quaternion(0,0,0,0));
+					clones [i, j].GetComponentInChildren<Renderer>().material = wood;
 				}else if (board[i,j] == 1) {
-					clones[i,j] = (GameObject) Instantiate (coal, new Vector3 (xpos, 0, ypos), new Quaternion(0,0,0,0));
+					clones [i, j].GetComponentInChildren<Renderer>().material = coal;
 				}else if (board[i,j] == 2) {
-					clones[i,j] = (GameObject) Instantiate (wheat, new Vector3 (xpos, 0, ypos), new Quaternion(0,0,0,0));
+					clones [i, j].GetComponentInChildren<Renderer>().material = wheat;
 				}
 			}
 		}

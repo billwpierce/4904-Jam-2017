@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSquareScript : MonoBehaviour {
+public class SquareController : MonoBehaviour {
 
 	public bool owned = false;
 	private float nextResource = 0.0F;

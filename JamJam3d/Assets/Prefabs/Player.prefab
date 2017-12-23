@@ -182,9 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfee58850e74e4f6dbf23907d2a7e275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheat: {fileID: 1407327957512830, guid: d94696df0d54c43108d459f98856b36c, type: 2}
-  coal: {fileID: 1128818326027108, guid: 26bab5cff366b4e09865ed2823859b47, type: 2}
-  wood: {fileID: 1486769033442124, guid: 3619c3dc34e5142cdb9bb098892e8d73, type: 2}
+  gameSquare: {fileID: 1463200966488066, guid: 47a2537cbab2c49a3a2056912795bbe5, type: 2}
+  wheat: {fileID: 2100000, guid: bb50f80560fd84c96ac7be44cc3312c2, type: 2}
+  coal: {fileID: 2100000, guid: c6e3dd33bcf0f4d6e941277b0c8bb753, type: 2}
+  wood: {fileID: 2100000, guid: 9e92b4bdde6624eabb6436842dafe02d, type: 2}
 --- !u!114 &114426904537078076
 MonoBehaviour:
   m_ObjectHideFlags: 1
