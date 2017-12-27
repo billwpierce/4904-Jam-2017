@@ -141,3 +141,6 @@ MonoBehaviour:
   owned: 0
   squareMaterial: {fileID: 0}
   squareMaterialSelected: {fileID: 0}
+  squareType: 0
+  playerObject: {fileID: 1945704638642456, guid: 03ea035aa949c4bcbb1a4686c6239a6a,
+    type: 2}
