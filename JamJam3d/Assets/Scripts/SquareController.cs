@@ -7,6 +7,7 @@ public class SquareController : MonoBehaviour {
 	public bool owned = false;
 	private float nextResource = 0.0F;
 	private float resourceRate = 5.0F;
+	private int resourceStep = 10;
 
 	public Material squareMaterial;
 	public Material squareMaterialSelected;
@@ -17,7 +18,13 @@ public class SquareController : MonoBehaviour {
 
 	void Update(){
 		if (owned && Time.time > nextResource) {
-			Debug.Log ("Resource Gained.");
+			if (squareType == 0) {
+				playerObject.GetComponent<PlayerController> ().totalWood += resourceStep;
+			} else if (squareType == 1) {
+				playerObject.GetComponent<PlayerController> ().totalCoal += resourceStep;
+			} else {
+				playerObject.GetComponent<PlayerController> ().totalWheat += resourceStep;
+			}
 			nextResource += resourceRate;
 		}
 	}
@@ -26,13 +33,7 @@ public class SquareController : MonoBehaviour {
 		if (!owned) {
 			Debug.Log ("Unowned, now owned.");
 			owned = true;
-			if (squareType == 0) {
-				playerObject.GetComponent<PlayerController> ().totalWood += 1;
-			} else if (squareType == 1) {
-				playerObject.GetComponent<PlayerController> ().totalCoal += 1;
-			} else {
-				playerObject.GetComponent<PlayerController> ().totalWheat += 1;
-			}
+			nextResource = Time.time;
 		}else{
 			Debug.Log ("Still owned.");
 		}
