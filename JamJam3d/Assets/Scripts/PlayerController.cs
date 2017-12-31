@@ -18,9 +18,9 @@ public class PlayerController : NetworkBehaviour {
 	public int[,] board = new int[16, 16];
 	public GameObject[,] clones = new GameObject[16,16];
 
-	public int totalCoal = 0;
-	public int totalWheat = 0;
-	public int totalWood = 0;
+	public int totalCoal = 50;
+	public int totalWheat = 50;
+	public int totalWood = 50;
 
 	public Text woodText;
 	public Text coalText;

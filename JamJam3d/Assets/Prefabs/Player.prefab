@@ -113,6 +113,9 @@ MonoBehaviour:
   coalSelected: {fileID: 2100000, guid: bc9bfdb5d07fc4845b9e6397bcca9204, type: 2}
   wood: {fileID: 2100000, guid: 9e92b4bdde6624eabb6436842dafe02d, type: 2}
   woodSelected: {fileID: 2100000, guid: eeb3069f9f1524dfb80a835c169823c3, type: 2}
-  totalCoal: 0
-  totalWheat: 0
-  totalWood: 0
+  totalCoal: 100
+  totalWheat: 100
+  totalWood: 100
+  woodText: {fileID: 0}
+  coalText: {fileID: 0}
+  wheatText: {fileID: 0}
