@@ -14,6 +14,7 @@ public class PlayerController : NetworkBehaviour {
 	public Material coalSelected;
 	public Material wood;
 	public Material woodSelected;
+	public Material blank;
 
 	public int[,] board = new int[16, 16];
 	public GameObject[,] clones = new GameObject[16,16];
@@ -51,6 +52,10 @@ public class PlayerController : NetworkBehaviour {
 				board[i,j] = Random.Range(0, 3);
 			}
 		}
+		board [1, 1] = -1;
+		board [board.GetLength(0)-2, 1] = -2;
+		board [1, board.GetLength(1)-2] = -3;
+		board [board.GetLength(0)-2, board.GetLength(1)-2] = -4;
 	}
 
 	public void renderLocalBoard(int[,] board)
@@ -60,18 +65,24 @@ public class PlayerController : NetworkBehaviour {
 				float xpos = i - (board.GetLength (0) / 2) + 0.5f;
 				float ypos = j - (board.GetLength (1) / 2) + 0.5f;
 				clones[i,j] = (GameObject) Instantiate (gameSquare, new Vector3 (xpos, 0, ypos), new Quaternion(0,0,0,0));
-				if (board[i,j] == 0) {
-					clones [i, j].GetComponentInChildren<Renderer>().material = wood;
-					clones [i, j].GetComponentInChildren<SquareController>().squareMaterial = wood;
-					clones [i, j].GetComponentInChildren<SquareController>().squareMaterialSelected = woodSelected;
-				}else if (board[i,j] == 1) {
-					clones [i, j].GetComponentInChildren<Renderer>().material = coal;
-					clones [i, j].GetComponentInChildren<SquareController>().squareMaterial = coal;
-					clones [i, j].GetComponentInChildren<SquareController>().squareMaterialSelected = coalSelected;
-				}else if (board[i,j] == 2) {
-					clones [i, j].GetComponentInChildren<Renderer>().material = wheat;
-					clones [i, j].GetComponentInChildren<SquareController>().squareMaterial = wheat;
-					clones [i, j].GetComponentInChildren<SquareController>().squareMaterialSelected = wheatSelected;
+				if (board [i, j] == 0) {
+					clones [i, j].GetComponentInChildren<Renderer> ().material = wood;
+					clones [i, j].GetComponentInChildren<SquareController> ().squareMaterial = wood;
+					clones [i, j].GetComponentInChildren<SquareController> ().squareMaterialSelected = woodSelected;
+				} else if (board [i, j] == 1) {
+					clones [i, j].GetComponentInChildren<Renderer> ().material = coal;
+					clones [i, j].GetComponentInChildren<SquareController> ().squareMaterial = coal;
+					clones [i, j].GetComponentInChildren<SquareController> ().squareMaterialSelected = coalSelected;
+				} else if (board [i, j] == 2) {
+					clones [i, j].GetComponentInChildren<Renderer> ().material = wheat;
+					clones [i, j].GetComponentInChildren<SquareController> ().squareMaterial = wheat;
+					clones [i, j].GetComponentInChildren<SquareController> ().squareMaterialSelected = wheatSelected;
+				} else if (board [i, j] < 0) {
+					clones [i, j].GetComponentInChildren<Renderer> ().material = blank;
+					clones [i, j].GetComponentInChildren<SquareController> ().squareMaterial = blank;
+					clones [i, j].GetComponentInChildren<SquareController> ().squareMaterialSelected = blank;
+					clones [i, j].GetComponentInChildren<SquareController> ().owned = true;
+					clones [i, j].GetComponentInChildren<SquareController> ().ownedBy = -1 * board[i,j];
 				}
 				clones [i, j].GetComponentInChildren<SquareController> ().squareType = board [i, j];
 				clones [i, j].GetComponentInChildren<SquareController>().playerObject = gameObject;

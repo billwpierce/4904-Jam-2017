@@ -21,19 +21,14 @@ public class SquareController : MonoBehaviour {
 
 	void Update(){
 		if (owned) {
-			if(ownedBy == 1){
-				// Light Blue Player
-				GetComponent<Renderer> ().material.color = new Color(0, 3, 3);
-			} else if(ownedBy == 2){
-				// Red Player
-				GetComponent<Renderer> ().material.color = new Color(5, 0, 0);
-			} else if(ownedBy == 3) {
-				// Green Player
-				GetComponent<Renderer> ().material.color = new Color(0, 1, 0);
-			} else if(ownedBy == 4){
-				// Purple Player
-				GetComponent<Renderer> ().material.color = new Color(0, 0, 5);
-			}
+			// Red Player
+//			GetComponent<Renderer> ().material.color = new Color(1, 0, 0);
+			// Cyan Player
+//			GetComponent<Renderer> ().material.color = new Color(0, 1, 1);
+			// Yellow Player
+//			GetComponent<Renderer> ().material.color = new Color(1, 1, 0);
+			// Green Player
+			GetComponent<Renderer> ().material.color = new Color(0, 1, 0);
 			if (Time.time > nextResource) {
 				if (squareType == 0) {
 					playerObject.GetComponent<PlayerController> ().totalWood += resourceStep;
