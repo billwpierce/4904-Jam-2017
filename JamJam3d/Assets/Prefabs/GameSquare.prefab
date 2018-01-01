@@ -39,6 +39,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4870751153349506}
+  - component: {fileID: 114527493534707372}
   m_Layer: 0
   m_Name: GameSquare
   m_TagString: Untagged
@@ -123,11 +124,43 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Convex: 0
-  m_CookingOptions: 14
+  m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114527493534707372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956071985758470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 89
+    i1: 197
+    i2: 0
+    i3: 137
+    i4: 162
+    i5: 114
+    i6: 52
+    i7: 85
+    i8: 168
+    i9: 116
+    i10: 212
+    i11: 34
+    i12: 68
+    i13: 34
+    i14: 121
+    i15: 206
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114710175270262762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owned: 0
+  ownedBy: 0
   squareMaterial: {fileID: 0}
   squareMaterialSelected: {fileID: 0}
   squareType: 0
