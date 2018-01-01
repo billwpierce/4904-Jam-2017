@@ -15,7 +15,7 @@ public class PlayerController : NetworkBehaviour {
 	public Material wood;
 	public Material woodSelected;
 
-	public int[,] board = new int[16, 16];
+	public static int[,] board = new int[16, 16];
 	public GameObject[,] clones = new GameObject[16,16];
 
 	public int totalCoal = 50;
@@ -33,12 +33,10 @@ public class PlayerController : NetworkBehaviour {
 		woodText = GameObject.FindGameObjectWithTag ("WoodTexto").GetComponent<Text>();
 		coalText = GameObject.FindGameObjectWithTag ("CoalTexto").GetComponent<Text>();
 		wheatText = GameObject.FindGameObjectWithTag ("WheatTexto").GetComponent<Text>();
-		Debug.Log (Network.connections);
-		if (isServer && !(boardCount > 0)) {
+		if (isServer) {
 			makeLocalBoard ();
 			renderLocalBoard (board);
 			Debug.Log ("making Board");
-			boardCount += 1;
 		}
 	}
 
@@ -53,6 +51,7 @@ public class PlayerController : NetworkBehaviour {
 	}
 
 	public void makeLocalBoard(){
+		Random.InitState(10);
 		for (int i = 0; i < board.GetLength(0); i++) {
 			for (int j = 0; j < board.GetLength(1); j++) {
 				board[i,j] = Random.Range(0, 3);
